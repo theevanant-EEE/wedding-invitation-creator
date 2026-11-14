@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&family=Noto+Serif+Tamil:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<audio id="bgm" src="music.mp3" loop preload="none"></audio>
+
+<section id="intro">
+  <svg id="temple" viewBox="0 40 300 400" aria-hidden="true"></svg>
+  <button id="open" aria-label="Open invitation"><em class="tap">Tap to open</em></button>
+</section>
+
+<div id="petals" aria-hidden="true"></div>
+<button id="music" aria-pressed="false">♪ Music</button>
+
+<main>
+  <section class="hero">
+    <p class="ta">திருமண அழைப்பிதழ்</p>
+    <p class="rv" id="greet"></p>
+    <p class="rv">With the blessings of the Almighty and our beloved families, we joyfully invite you to the wedding of</p>
+    <h1 class="rv"><span id="groom"></span><i>&amp;</i><span id="bride"></span></h1>
+    <p class="small rv" id="parents"></p>
+  </section>
+
+  <section class="cal">
+    <h2 class="rv">Save the Date</h2>
+    <div id="pad" class="pad"></div>
+    <p class="rv" id="dateLine"></p>
+  </section>
+
+  <section class="lamp">
+    <svg id="vilakku" viewBox="0 0 120 150" aria-hidden="true">
+      <g id="fl"><path class="fl" d="M60 8C78 36 74 52 60 58C46 52 42 36 60 8Z" fill="#ffb300"/></g>
+      <path d="M20 70H100C100 100 80 112 60 112C40 112 20 100 20 70Z" fill="#b3202a"/>
+      <rect x="52" y="112" width="16" height="22" fill="#e8a317"/><rect x="34" y="134" width="52" height="10" rx="4" fill="#e8a317"/>
+    </svg>
+    <div id="cd" class="cd"></div>
+  </section>
+
+  <section class="story">
+    <div class="thoranam" id="leaves"></div>
+    <h2 class="rv">Our Story</h2>
+    <div id="cards"></div>
+  </section>
+
+  <section id="events">
+    <span id="moon">☾</span><span id="sun">☀</span>
+    <h2>The Celebrations</h2>
+    <article class="ev rv"><small>Day 1 · Evening</small><h3>Reception</h3><p id="rec"></p><p class="venue"></p></article>
+    <article class="ev rv"><small>Day 2 · Morning</small><h3>Muhurtham</h3><p id="muh"></p><p class="venue"></p></article>
+    <div class="acts">
+      <a class="btn" id="map" target="_blank" rel="noopener">Open in Maps</a>
+      <button class="btn" id="ics">Add to Calendar</button>
+      <button class="btn red" id="rsvp">RSVP on WhatsApp</button>
+    </div>
+  </section>
+
+  <footer><p class="script">With love &amp; blessings</p><p class="small">Made with love</p></footer>
+</main>
+</body>
+</html>
 
