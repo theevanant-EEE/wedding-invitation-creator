@@ -1,0 +1,90 @@
+*{box-sizing:border-box}
+:root{--ivory:#fbf4e4;--gold:#e8a317;--red:#b3202a;--maroon:#5b1020;--night:#0d1b3d}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ivory);color:var(--maroon);font:18px/1.6 "Cormorant Garamond","Noto Serif Tamil",serif;text-align:center;overflow-x:hidden}
+body:not(.ready){overflow:hidden}
+section{padding:80px 20px;position:relative}
+h1,h2,.script{font-family:"Great Vibes",cursive;font-weight:400;color:var(--red)}
+h2{font-size:42px;margin:0 0 20px}
+.small{font-size:14px;opacity:.8}
+.ta{font:600 22px "Noto Serif Tamil",serif;color:var(--gold)}
+
+/* intro: colourful gopuram, doors swing open, camera zooms through the doorway */
+#intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:radial-gradient(circle at 50% 35%,#fffbe6,#f3e2a0);overflow:hidden}
+#intro.open{pointer-events:none;animation:out .8s 3.4s forwards}
+#temple{width:min(92vw,66vh);height:auto;transform-origin:50% 74.5%}
+#intro.open #temple{transform:scale(18);transition:transform 2.1s cubic-bezier(.65,0,.95,.45) 1.5s}
+.dl,.dr{transform-box:fill-box;transition:transform 1.5s cubic-bezier(.6,0,.2,1) .15s}
+.dl{transform-origin:left center}.dr{transform-origin:right center}
+#intro.open .dl{transform:scaleX(.12) skewY(9deg)}#intro.open .dr{transform:scaleX(.12) skewY(-9deg)}
+#open{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:3vh;background:none;border:0;cursor:pointer;color:var(--maroon);font:inherit}
+#intro.open #open{opacity:0;transition:.4s}
+.tap{font-style:normal;font-weight:600;letter-spacing:3px;animation:blink 1.6s .5s infinite both}
+
+/* hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.hero p{max-width:34ch}
+h1{font-size:clamp(46px,14vw,84px);line-height:1.1;margin:12px 0}
+h1 span{display:block}h1 i{font:italic 28px "Cormorant Garamond";color:var(--gold)}
+
+/* tear-off calendar */
+.pad{position:relative;width:210px;height:240px;margin:24px auto}
+.sheet{position:absolute;inset:0;background:#fff;border-radius:8px 8px 16px 16px;box-shadow:0 10px 30px #5b102033;padding-top:34px;transform-origin:top center;transition:transform .8s cubic-bezier(.5,0,1,.6),opacity .8s}
+.sheet::before{content:"";position:absolute;top:0;left:0;right:0;height:18px;background:var(--red);border-radius:8px 8px 0 0}
+.sheet small{display:block;font-size:15px;letter-spacing:1px}
+.sheet b{display:block;font-size:96px;line-height:1.1;color:var(--red)}
+.sheet em{font-size:20px}
+.sheet.gone{transform:translate(var(--x),-40%) rotate(var(--r));opacity:0}
+
+/* vilakku countdown */
+.lamp{background:linear-gradient(var(--ivory),#f3dfae)}
+#vilakku{width:130px;filter:drop-shadow(0 0 calc(var(--f,1)*18px) #ffb300)}
+#fl{transform-origin:60px 58px;transform:scale(var(--f,1));transition:transform 1s}
+.fl{transform-origin:60px 58px;animation:flick .2s alternate infinite}
+.cd{display:flex;justify-content:center;gap:14px;margin-top:10px}
+.cd div{min-width:62px}.cd b{display:block;font-size:34px}.cd span{font-size:12px;letter-spacing:1px}
+
+/* thoranam story */
+.thoranam{display:flex;justify-content:space-around;border-top:3px solid #2f7d3a;margin:-80px -20px 40px}
+.thoranam i{width:16px;height:36px;background:#2f7d3a;border-radius:0 100% 0 100%;transform-origin:top;animation:sway 3s ease-in-out infinite}
+.thoranam i:nth-child(3n){background:var(--gold);height:22px;border-radius:50%}
+.card{width:min(280px,80%);margin:0 auto 50px;padding:12px 12px 16px;background:#fff;border-radius:6px;box-shadow:0 12px 30px #5b102030;transform-origin:top center;opacity:0;transition:opacity 1s}
+.card.in{opacity:1;animation:swing 3.5s ease-in-out infinite}
+.card.a{--a:2deg}.card.b{--a:-2deg}
+.card::before{content:"";position:absolute;left:50%;top:-24px;height:24px;border-left:2px solid #2f7d3a}
+.card{position:relative}
+.ph{display:grid;place-items:center;aspect-ratio:4/5;font-size:64px;background:linear-gradient(135deg,#f6c667,#e07a5f);border-radius:4px;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+figcaption{margin-top:10px;font-style:italic}
+
+/* sky shift events */
+#events{background:var(--night);color:#fff;min-height:110vh}
+#events h2{color:#fff}#events.day h2{color:var(--maroon)}
+#moon,#sun{position:absolute;right:24px;top:24px;font-size:44px}
+#sun{opacity:0}
+.ev{max-width:380px;margin:0 auto 24px;padding:22px;background:var(--ivory);color:var(--maroon);border-radius:18px}
+.ev h3{font:400 40px "Great Vibes";color:var(--red);margin:4px 0}
+.ev p{margin:2px 0}
+.acts{display:flex;flex-direction:column;gap:12px;max-width:300px;margin:36px auto 0}
+.btn{padding:13px 18px;border:2px solid var(--gold);border-radius:999px;background:var(--ivory);color:var(--maroon);font:600 17px inherit;font-family:inherit;text-decoration:none;cursor:pointer;transition:transform .2s}
+.btn:active,.btn:hover{transform:scale(1.05)}
+.btn.red{background:var(--red);color:#fff;border-color:var(--red)}
+footer{padding:50px 20px 90px}
+
+/* floating bits */
+#music{position:fixed;right:14px;bottom:14px;z-index:20;padding:9px 14px;border:1px solid var(--gold);border-radius:999px;background:#fffc;color:var(--maroon);font:600 14px inherit;font-family:inherit}
+#music[aria-pressed=true]{animation:pulse 2s infinite}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:10;overflow:hidden}
+#petals i{position:absolute;top:-20px;width:var(--s);height:var(--s);background:#e86a7a99;border-radius:0 100% 0 100%;animation:fall linear infinite}
+.rv{opacity:0;transform:translateY(26px);transition:.9s}.rv.in{opacity:1;transform:none}
+
+@keyframes out{to{opacity:0;visibility:hidden}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes blink{50%{opacity:.3}}
+@keyframes flick{to{transform:scale(1.07,.93) rotate(2deg)}}
+@keyframes sway{50%{transform:rotate(9deg)}}
+@keyframes swing{50%{transform:rotate(var(--a))}0%,100%{transform:rotate(calc(var(--a)*-1))}}
+@keyframes fall{to{transform:translate(60px,110vh) rotate(540deg)}}
+@keyframes pulse{50%{box-shadow:0 0 0 8px #e8a31722}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
